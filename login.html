@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Login | Saaptify</title>
+  <style>
+    :root {
+      --primary-color: #fbbc04;
+      --dark-color: #222;
+      --light-color: #fff;
+      --font: 'Segoe UI', sans-serif;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: var(--font);
+    }
+
+    body {
+      background-color: #fffdf3;
+      color: var(--dark-color);
+    }
+
+    header {
+      background-color: var(--light-color);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    .logo {
+      font-size: 1.8rem;
+      font-weight: bold;
+      color: var(--primary-color);
+    }
+
+    nav a {
+      margin-left: 2rem;
+      text-decoration: none;
+      color: var(--dark-color);
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+
+    nav a:hover {
+      color: var(--primary-color);
+    }
+
+    .login-container {
+      max-width: 400px;
+      margin: 4rem auto;
+      background: var(--light-color);
+      padding: 2.5rem;
+      border-radius: 12px;
+      box-shadow: 0 0 25px rgba(0,0,0,0.05);
+      text-align: center;
+    }
+
+    .login-container h2 {
+      margin-bottom: 1rem;
+      color: var(--primary-color);
+      font-size: 1.8rem;
+    }
+
+    .login-container form {
+      display: flex;
+      flex-direction: column;
+      gap: 1.2rem;
+      margin-top: 1rem;
+    }
+
+    .login-container label {
+      text-align: left;
+      font-weight: 600;
+      font-size: 0.95rem;
+    }
+
+    .login-container input {
+      padding: 0.75rem;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      font-size: 1rem;
+      outline: none;
+    }
+
+    .login-container input:focus {
+      border-color: var(--primary-color);
+      box-shadow: 0 0 5px rgba(251,188,4,0.5);
+    }
+
+    .login-container button {
+      background-color: var(--primary-color);
+      color: var(--light-color);
+      border: none;
+      padding: 0.75rem;
+      font-size: 1rem;
+      font-weight: 600;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    .login-container button:hover {
+      background-color: #e0a800;
+    }
+
+    .login-container .note {
+      margin-top: 1.2rem;
+      font-size: 0.85rem;
+      color: #888;
+    }
+
+    footer {
+      background-color: var(--primary-color);
+      text-align: center;
+      color: var(--light-color);
+      padding: 1rem;
+      margin-top: 4rem;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">Saaptify</div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="restaurants.html">Restaurants</a>
+      <a href="cart.html">Cart</a>
+    </nav>
+  </header>
+
+  <section class="login-container">
+    <h2>Login to Saaptify</h2>
+    <form onsubmit="loginUser(event)">
+      <div>
+        <label for="name">Your Name</label>
+        <input type="text" id="name" placeholder="Enter your name" required />
+      </div>
+      <div>
+        <label for="email">Email Address</label>
+        <input type="email" id="email" placeholder="you@example.com" required />
+      </div>
+      <div>
+        <label for="password">Password</label>
+        <input type="password" id="password" placeholder="Enter password" required />
+      </div>
+      <button type="submit">Login</button>
+    </form>
+    <p class="note">Demo Login – use <strong>user@example.com</strong> / <strong>123456</strong></p>
+  </section>
+
+  <footer>
+    <p>© 2025 Saaptify. All rights reserved.</p>
+  </footer>
+
+  <script>
+    function loginUser(event) {
+      event.preventDefault();
+      const name = document.getElementById("name").value.trim();
+      const email = document.getElementById("email").value.trim();
+      const password = document.getElementById("password").value;
+
+      if (email === "user@example.com" && password === "123456") {
+        alert("Welcome, " + name + "!");
+        window.location.href = "restaurants.html";
+      } else {
+        alert("Invalid credentials. Try again.");
+      }
+    }
+  </script>
+</body>
+</html>

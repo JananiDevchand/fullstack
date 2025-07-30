@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Checkout | Saaptify</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    body {
+      background-color: #fffbea;
+      color: #333;
+    }
+
+    header {
+      background-color: #fff;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid #eee;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    .logo {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: #f4b400;
+    }
+
+    nav a {
+      margin-left: 1.5rem;
+      text-decoration: none;
+      color: #333;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+
+    nav a:hover {
+      color: #f4b400;
+    }
+
+    .checkout-container {
+      max-width: 550px;
+      margin: 3rem auto;
+      background-color: #fff;
+      padding: 2.5rem;
+      border-radius: 12px;
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.07);
+    }
+
+    .checkout-container h2 {
+      text-align: center;
+      color: #f4b400;
+      margin-bottom: 2rem;
+      font-size: 2rem;
+    }
+
+    .checkout-container form {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .checkout-container label {
+      margin-top: 1.2rem;
+      font-weight: 600;
+      color: #555;
+    }
+
+    .checkout-container input,
+    .checkout-container textarea {
+      margin-top: 0.5rem;
+      padding: 0.85rem;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 1rem;
+      transition: border 0.2s;
+    }
+
+    .checkout-container input:focus,
+    .checkout-container textarea:focus {
+      outline: none;
+      border-color: #f4b400;
+    }
+
+    .checkout-container textarea {
+      resize: vertical;
+      height: 100px;
+    }
+
+    .checkout-container button {
+      margin-top: 2rem;
+      padding: 1rem;
+      background-color: #f4b400;
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: bold;
+      font-size: 1rem;
+      transition: background-color 0.3s ease;
+    }
+
+    .checkout-container button:hover {
+      background-color: #d4a300;
+    }
+
+    footer {
+      text-align: center;
+      padding: 1.5rem;
+      margin-top: 3rem;
+      background-color: #fff9e6;
+      color: #888;
+      font-size: 0.95rem;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="logo">Saaptify</div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="cart.html">Cart</a>
+    </nav>
+  </header>
+
+  <section class="checkout-container">
+    <h2>Complete Your Order</h2>
+    <form onsubmit="placeOrder(event)">
+      <label for="name">Full Name</label>
+      <input type="text" id="name" required />
+
+      <label for="address">Delivery Address</label>
+      <textarea id="address" required></textarea>
+
+      <label for="phone">Phone Number</label>
+      <input type="tel" id="phone" pattern="[0-9]{10}" placeholder="10-digit mobile number" required />
+
+      <button type="submit">Place Order</button>
+    </form>
+  </section>
+
+  <footer>
+    <p>© 2025 Saaptify Clone</p>
+  </footer>
+
+  <script>
+    function placeOrder(event) {
+      event.preventDefault();
+      const name = document.getElementById("name").value.trim();
+      const address = document.getElementById("address").value.trim();
+      const phone = document.getElementById("phone").value.trim();
+
+      if (!name || !address || !phone) {
+        alert("Please fill all fields!");
+        return;
+      }
+
+      localStorage.setItem("userName", name); // Save name
+      localStorage.removeItem("cart");
+      window.location.href = "order-success.html";
+    }
+  </script>
+</body>
+</html>

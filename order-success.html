@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Order Success | Saaptify</title>
+  <style>
+    body {
+      background: #fff8db;
+      font-family: 'Segoe UI', sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .success-box {
+      background: #fff;
+      padding: 3rem;
+      border-radius: 12px;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.08);
+      text-align: center;
+    }
+
+    .success-box h1 {
+      color: #f4b400;
+      margin-bottom: 1rem;
+    }
+
+    .success-box p {
+      font-size: 1.1rem;
+      color: #555;
+      margin-bottom: 2rem;
+    }
+
+    .success-box a {
+      text-decoration: none;
+      background: #f4b400;
+      color: white;
+      padding: 0.8rem 1.5rem;
+      border-radius: 8px;
+      font-weight: bold;
+      transition: background 0.3s;
+    }
+
+    .success-box a:hover {
+      background: #d49f00;
+    }
+  </style>
+</head>
+<body>
+  <div class="success-box">
+    <h1>🎉 Order Placed!</h1>
+    <p id="success-message">Your food is on the way!</p>
+    <a href="index.html">Go to Home</a>
+  </div>
+
+  <script>
+    const name = localStorage.getItem("userName");
+    const message = name
+      ? `Hey ${name}, your order has been placed successfully!`
+      : `Your order has been placed successfully!`;
+    document.getElementById("success-message").textContent = message;
+    localStorage.removeItem("userName");
+  </script>
+</body>
+</html>

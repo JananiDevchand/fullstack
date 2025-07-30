@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Menu | Saaptify</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    body {
+      background-color: #fffbea;
+      color: #333;
+    }
+
+    header {
+      background-color: white;
+      color: #ffc107;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 2px solid #ffc107;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    .logo {
+      font-size: 1.7rem;
+      font-weight: bold;
+      color: #ffc107;
+    }
+
+    nav a {
+      margin-left: 1.5rem;
+      text-decoration: none;
+      color: #333;
+      font-weight: 600;
+      transition: 0.2s;
+    }
+
+    nav a:hover {
+      color: #ffc107;
+    }
+
+    .menu-header {
+      text-align: center;
+      padding: 2rem 1rem 1rem;
+    }
+
+    .menu-header h2 {
+      font-size: 2rem;
+      color: #fcb900;
+    }
+
+    .menu-header p {
+      color: #777;
+      margin-top: 0.5rem;
+      font-size: 1rem;
+    }
+
+    .menu-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 2rem;
+      padding: 2rem;
+    }
+
+    .menu-card {
+      background: #fff;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.07);
+      transition: 0.3s;
+    }
+
+    .menu-card:hover {
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+    }
+
+    .menu-card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+    }
+
+    .menu-details {
+      padding: 1rem;
+      text-align: center;
+    }
+
+    .menu-details h3 {
+      margin-bottom: 0.4rem;
+      color: #333;
+    }
+
+    .menu-details p {
+      color: #777;
+      font-size: 0.95rem;
+    }
+
+    .menu-details button {
+      margin-top: 0.6rem;
+      padding: 0.5rem 1.4rem;
+      background-color: #ffc107;
+      border: none;
+      color: #333;
+      border-radius: 5px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+
+    .menu-details button:hover {
+      background-color: #ffc107;
+      color: #000;
+    }
+
+    footer {
+      text-align: center;
+      padding: 1rem;
+      margin-top: 2rem;
+      background: #ffc107;
+      color: #444;
+      font-size: 0.9rem;
+    }
+
+    @media screen and (max-width: 500px) {
+      .menu-header h2 {
+        font-size: 1.5rem;
+      }
+
+      nav a {
+        margin-left: 1rem;
+        font-size: 0.95rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">Saaptify</div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="restaurants.html">Restaurants</a>
+      <a href="cart.html">Cart</a>
+    </nav>
+  </header>
+
+  <section class="menu-header">
+    <h2>Pizza Palace</h2>
+    <p>Italian, Fast Food • ⭐ 4.5 • 30 mins</p>
+  </section>
+
+  <section class="menu-list">
+    <div class="menu-card">
+      <img src="img/margarita.jpg" alt="Margherita Pizza" />
+      <div class="menu-details">
+        <h3>Margherita Pizza</h3>
+        <p>₹199</p>
+        <button onclick="addToCart('Margherita Pizza', 199)">Add</button>
+      </div>
+    </div>
+
+    <div class="menu-card">
+      <img src="img/farmhouse.jpg" alt="Farmhouse Pizza" />
+      <div class="menu-details">
+        <h3>Farmhouse Pizza</h3>
+        <p>₹249</p>
+        <button onclick="addToCart('Farmhouse Pizza', 249)">Add</button>
+      </div>
+    </div>
+
+    <div class="menu-card">
+      <img src="img/white.jpg" alt="White Sauce Pasta" />
+      <div class="menu-details">
+        <h3>White Sauce Pasta</h3>
+        <p>₹189</p>
+        <button onclick="addToCart('White Sauce Pasta', 189)">Add</button>
+      </div>
+    </div>
+
+    <div class="menu-card">
+      <img src="img/panner.jpg" alt="Tandoori Paneer Pizza" />
+      <div class="menu-details">
+        <h3>Tandoori Paneer Pizza</h3>
+        <p>₹269</p>
+        <button onclick="addToCart('Tandoori Paneer Pizza', 269)">Add</button>
+      </div>
+    </div>
+
+    <div class="menu-card">
+      <img src="img/chocolava.jpg" alt="Choco Lava Cake" />
+      <div class="menu-details">
+        <h3>Choco Lava Cake</h3>
+        <p>₹99</p>
+        <button onclick="addToCart('Choco Lava Cake', 99)">Add</button>
+      </div>
+    </div>
+
+    <div class="menu-card">
+      <img src="img/cocacola.jpg" alt="Coca-Cola" />
+      <div class="menu-details">
+        <h3>Coca-Cola (500ml)</h3>
+        <p>₹49</p>
+        <button onclick="addToCart('Coca-Cola', 49)">Add</button>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2025 Saaptify</p>
+  </footer>
+
+  <script>
+    function addToCart(item, price) {
+      let cart = JSON.parse(localStorage.getItem('cart')) || [];
+      cart.push({ item, price });
+      localStorage.setItem('cart', JSON.stringify(cart));
+      alert(item + " added to cart!");
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Cart | Swiggy Clone</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    body {
+      background-color: #fdfdfd;
+      color: #333;
+    }
+
+    header {
+      background-color: #fff;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid #eee;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    .logo {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: #f4b400;
+    }
+
+    nav a {
+      margin-left: 1.5rem;
+      text-decoration: none;
+      color: #333;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+
+    nav a:hover {
+      color: #f4b400;
+    }
+
+    .cart-container {
+      max-width: 800px;
+      margin: 3rem auto;
+      background-color: #fff;
+      padding: 2rem;
+      border-radius: 10px;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+    }
+
+    .cart-container h2 {
+      text-align: center;
+      margin-bottom: 1.5rem;
+      color: #f4b400;
+    }
+
+    .cart-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 0;
+      border-bottom: 1px solid #eee;
+    }
+
+    .cart-item:last-child {
+      border-bottom: none;
+    }
+
+    .cart-item-name {
+      font-size: 1.1rem;
+    }
+
+    .cart-item-price {
+      font-weight: bold;
+      color: #333;
+    }
+
+    .total {
+      text-align: right;
+      margin-top: 1.5rem;
+      font-size: 1.2rem;
+      font-weight: bold;
+      color: #444;
+    }
+
+    .checkout-btn {
+      margin-top: 2rem;
+      display: flex;
+      justify-content: center;
+    }
+
+    .checkout-btn button {
+      padding: 0.8rem 2rem;
+      background-color: #f4b400;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .checkout-btn button:hover {
+      background-color: #d99d00;
+    }
+
+    .empty-cart {
+      text-align: center;
+      color: #888;
+      font-size: 1.1rem;
+      padding: 2rem;
+    }
+
+    footer {
+      text-align: center;
+      padding: 1.2rem;
+      margin-top: 3rem;
+      background-color: #f9f9f9;
+      color: #999;
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="logo">Saaptify</div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="restaurants.html">Restaurants</a>
+    </nav>
+  </header>
+
+  <section class="cart-container" id="cartSection">
+    <h2>Your Cart</h2>
+    <div id="cartItems"></div>
+    <div class="total" id="cartTotal">Total: ₹0</div>
+    <div class="checkout-btn">
+      <button onclick="checkout()">Checkout</button>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2025 Swiggy Clone. All rights reserved.</p>
+  </footer>
+
+<script>
+  const cartData = JSON.parse(localStorage.getItem('cart')) || [];
+  const cartItemsDiv = document.getElementById('cartItems');
+  const cartTotalDiv = document.getElementById('cartTotal');
+
+  function renderCart() {
+    cartItemsDiv.innerHTML = '';
+
+    if (cartData.length === 0) {
+      document.getElementById('cartSection').innerHTML = `
+        <h2>Your Cart</h2>
+        <div class="empty-cart">Your cart is empty. Go add some delicious items! 🍽️</div>
+      `;
+      return;
+    }
+
+    let total = 0;
+
+    cartData.forEach((item, index) => {
+      const itemDiv = document.createElement('div');
+      itemDiv.className = 'cart-item';
+
+      itemDiv.innerHTML = `
+        <div class="cart-item-name">${item.item}</div>
+        <div class="cart-item-price">₹${item.price}</div>
+      `;
+
+      cartItemsDiv.appendChild(itemDiv);
+      total += item.price;
+    });
+
+    cartTotalDiv.textContent = `Total: ₹${total}`;
+  }
+
+  function checkout() {
+    if (cartData.length === 0) {
+      alert("Cart is empty!");
+      return;
+    }
+    
+    // ✅ Go to checkout form, do NOT place order directly
+    window.location.href = "checkout.html";
+  }
+
+  renderCart();
+</script>
+
+</body>
+</html>

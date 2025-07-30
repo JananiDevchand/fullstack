@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Saaptify - Crave. Click. Eat.</title>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Outfit', sans-serif;
+    }
+
+    body {
+      background-color: #fffbe7;
+      color: #222;
+    }
+
+    header {
+      background-color: #fff;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.2rem 2rem;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .logo {
+      font-size: 2rem;
+      font-weight: 700;
+      color: #ffc107;
+      letter-spacing: 1px;
+    }
+
+    nav a {
+      margin-left: 2rem;
+      text-decoration: none;
+      color: #222;
+      font-weight: 500;
+      transition: 0.3s;
+    }
+
+    nav a:hover {
+      color: #ffc107;
+    }
+
+    .hero {
+      position: relative;
+      text-align: center;
+      padding: 6rem 1rem;
+      background: linear-gradient(to bottom, rgba(255,193,7,0.8), rgba(255,255,255,0.9)), url('https://source.unsplash.com/1600x700/?indian-food') no-repeat center center/cover;
+      color: #111;
+      overflow: hidden;
+    }
+
+    .hero h1 {
+      font-size: 3.5rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
+
+    .hero p {
+      font-size: 1.3rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero input {
+      padding: 0.8rem 1rem;
+      width: 280px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      margin-top: 1rem;
+      font-size: 1rem;
+    }
+
+    .hero button {
+      padding: 0.8rem 1.5rem;
+      background-color: #ffc107;
+      color: black;
+      border: none;
+      border-radius: 6px;
+      margin-left: 1rem;
+      font-weight: 600;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .hero button:hover {
+      background-color: #e6af05;
+    }
+
+    .features {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      padding: 4rem 2rem;
+      gap: 2rem;
+      background-color: #fff;
+    }
+
+    .feature-box {
+      text-align: center;
+      width: 280px;
+      padding: 1.5rem;
+      background-color: #fffde7;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+      transition: 0.3s;
+    }
+
+    .feature-box:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+    }
+
+    .feature-box img {
+      width: 70px;
+      margin-bottom: 1rem;
+    }
+
+    .feature-box h3 {
+      color: #ffc107;
+      margin-bottom: 0.5rem;
+    }
+
+    .feature-box p {
+      color: #444;
+    }
+
+    .floating-food {
+      position: absolute;
+      width: 60px;
+      animation: float 6s infinite ease-in-out;
+      opacity: 0.9;
+    }
+
+    .food1 {
+      top: 20%;
+      left: 5%;
+      animation-delay: 0s;
+    }
+
+    .food2 {
+      top: 60%;
+      right: 5%;
+      animation-delay: 2s;
+    }
+
+    .food3 {
+      top: 30%;
+      left: 80%;
+      animation-delay: 1s;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-20px); }
+    }
+
+    .contact {
+      background-color: #fffef4;
+      padding: 3rem 2rem;
+      text-align: center;
+      margin-top: 3rem;
+    }
+
+    .contact h2 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      color: #ffc107;
+    }
+
+    .contact p {
+      color: #444;
+      margin-bottom: 0.5rem;
+      font-size: 1.1rem;
+    }
+
+    footer {
+      background-color: #ffc107;
+      text-align: center;
+      color: black;
+      padding: 1.2rem;
+      font-weight: 500;
+      margin-top: 1rem;
+    }
+
+    @media (max-width: 768px) {
+      .hero h1 {
+        font-size: 2.5rem;
+      }
+
+      .features {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .floating-food {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="logo">Saaptify</div>
+    <nav>
+      <a href="restaurants.html">Restaurants</a>
+      <a href="login.html">Login</a>
+      <a href="cart.html">Cart</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <img src="https://cdn-icons-png.flaticon.com/512/1046/1046757.png" class="floating-food food1" alt="Floating food 1">
+    <img src="https://cdn-icons-png.flaticon.com/512/135/135620.png" class="floating-food food2" alt="Floating food 2">
+    <img src="https://cdn-icons-png.flaticon.com/512/3075/3075977.png" class="floating-food food3" alt="Floating food 3">
+    
+    <h1>Crave. Click. Eat.</h1>
+    <p>India's fastest food delivery from your favorite local restaurants 🍱</p>
+    <input type="text" placeholder="Enter your location" />
+    <button>Find Food</button>
+  </section>
+
+  <section class="features">
+    <div class="feature-box">
+      <img src="https://cdn-icons-png.flaticon.com/512/1046/1046784.png" alt="Fast Delivery" />
+      <h3>Lightning-Fast Delivery</h3>
+      <p>Food at your doorstep in 30 minutes. Always hot, always fresh!</p>
+    </div>
+    <div class="feature-box">
+      <img src="https://cdn-icons-png.flaticon.com/512/2956/2956820.png" alt="Live Tracking" />
+      <h3>Live Order Tracking</h3>
+      <p>Track your order in real time from the kitchen to your home.</p>
+    </div>
+    <div class="feature-box">
+      <img src="https://cdn-icons-png.flaticon.com/512/1828/1828919.png" alt="No Minimum Order" />
+      <h3>No Minimum Order</h3>
+      <p>Order anything you want, no restrictions. Even one samosa!</p>
+    </div>
+  </section>
+
+  <section class="contact" id="contact">
+    <h2>Contact & Support</h2>
+    <p>Email: support@saaptify.com</p>
+    <p>Phone: +91 98765 43210</p>
+    <p>Need help? Chat with us 24/7 or send feedback!</p>
+  </section>
+
+  <footer>
+    <p>© 2025 Saaptify. Made with ❤️ in India.</p>
+  </footer>
+
+</body>
+</html>
